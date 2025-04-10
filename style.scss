@@ -1,4 +1,3 @@
-// Variables
 $bg-dark: #0a0a0a;
 $text-dark: #e0e0e0;
 $bg-light: #f9f9f9;
@@ -14,7 +13,6 @@ $project-border-light: rgba(0, 0, 0, 0.08);
 $transition: 0.4s;
 $easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-// Base
 body {
   font-family: "Segoe UI", sans-serif;
   line-height: 1.6;
@@ -29,7 +27,6 @@ body {
   }
 }
 
-// Header
 header {
   height: 100vh;
   display: flex;
@@ -53,7 +50,6 @@ header {
   }
 }
 
-// Sections
 section {
   padding: 6rem 2rem;
   max-width: 900px;
@@ -77,7 +73,6 @@ h2 {
   }
 }
 
-// Projets
 .projet {
   background: $project-bg-dark;
   padding: 2rem;
@@ -95,7 +90,6 @@ h2 {
   }
 }
 
-// Compétences
 .grille-competences {
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +123,6 @@ h2 {
   }
 }
 
-// Bougie
 .bougie-conteneur {
   position: fixed;
   top: 2rem;
