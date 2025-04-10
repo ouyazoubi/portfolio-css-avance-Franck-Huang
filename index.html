@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio de Franck Huang</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.scss" />
   </head>
   <body>
-    <div class="bougie-conteneur" onclick="basculerTheme()">
+    <div class="bougie-conteneur" onclick="changerTheme()">
       <div class="bougie">
         <div class="flamme"></div>
-        <div class="meche"></div>
+        <div class="mèche"></div>
         <div class="cire"></div>
+        <div class="socle"></div>
       </div>
     </div>
 
@@ -101,5 +103,12 @@
     </footer>
 
     <script src="script.js"></script>
+
+  </details>
+  <script>
+    function changerTheme() {
+      const body = document.body;
+      body.classList.toggle("sombre");
+    }
   </body>
 </html>

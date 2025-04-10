@@ -1,0 +1,200 @@
+// Variables
+$bg-dark: #0a0a0a;
+$text-dark: #e0e0e0;
+$bg-light: #f9f9f9;
+$text-light: #111111;
+$accent-dark: #00ffcc;
+$accent-light: #007777;
+
+$project-bg-dark: rgba(255, 255, 255, 0.03);
+$project-border-dark: rgba(255, 255, 255, 0.08);
+$project-bg-light: rgba(0, 0, 0, 0.03);
+$project-border-light: rgba(0, 0, 0, 0.08);
+
+$transition: 0.4s;
+$easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Base
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: $bg-dark;
+  color: $text-dark;
+  transition: background-color $transition $easing, color $transition $easing;
+
+  &.dark {
+    background-color: $bg-light;
+    color: $text-light;
+  }
+}
+
+// Header
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #0f0f0f 0%, #000 100%);
+
+  h1 {
+    font-size: 4rem;
+    color: $accent-dark;
+    text-shadow: 0 0 10px $accent-dark;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 600px;
+    margin-top: 1rem;
+  }
+}
+
+// Sections
+section {
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  color: $accent-dark;
+
+  &::after {
+    content: "";
+    width: 60px;
+    height: 2px;
+    background: $accent-dark;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+  }
+}
+
+// Projets
+.projet {
+  background: $project-bg-dark;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-top: 2rem;
+  backdrop-filter: blur(6px);
+  border: 1px solid $project-border-dark;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s $easing, background 0.25s $easing,
+    box-shadow 0.25s $easing;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 10px 25px rgba(0, 255, 204, 0.2);
+  }
+}
+
+// Compétences
+.grille-competences {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+
+  .competence {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: brightness(0.8);
+    transition: transform 0.3s, filter 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2) drop-shadow(0 0 5px $accent-dark);
+    }
+
+    img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    span {
+      font-size: 0.9rem;
+      color: inherit;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+// Bougie
+.bougie-conteneur {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 999;
+  cursor: pointer;
+
+  .bougie {
+    position: relative;
+    width: 24px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cire {
+      width: 20px;
+      height: 50px;
+      background: #fff;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      z-index: 2;
+    }
+
+    .mèche {
+      width: 2px;
+      height: 6px;
+      background: #222;
+      margin-top: -6px;
+      z-index: 3;
+    }
+
+    .flamme {
+      width: 10px;
+      height: 14px;
+      background: radial-gradient(circle, #ff9900 0%, #ff4500 80%);
+      border-radius: 50%;
+      margin-bottom: -6px;
+      animation: flicker 1s infinite ease-in-out;
+      z-index: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    .socle {
+      width: 30px;
+      height: 8px;
+      background: #444;
+      border-radius: 6px;
+      margin-top: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+@keyframes flicker {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1.1) translateY(-1px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
